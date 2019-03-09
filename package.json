@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Hackers' Live Coin (ERC20)",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "export-abi": "node export-abi.js",
+    "export-bytecode": "node export-bytecode.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hackers-live/hackers-live-coin.git"
