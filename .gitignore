@@ -1,3 +1,4 @@
 .secret
 .infura_key
 node_modules
+.account

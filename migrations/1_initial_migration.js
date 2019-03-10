@@ -3,6 +3,9 @@
  * We don't want to write any additional contracts on chain.
  */
 
+const Migrations = artifacts.require("Migrations");
+
 module.exports = function(deployer, network, accounts) {
-  return;
+  deployer.deploy(Migrations);
 };
+
