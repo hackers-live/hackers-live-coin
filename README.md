@@ -30,8 +30,20 @@ You can create and deploy your own token using this repository.
 ```
 touch ~/.bash_profile
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-nvm install --lts
+nvm install 11.11.0
+nvm use 11.11.0
 node -v && npm -v
+```
+
+### Install truffle & truffle-flattener
+
+Truffle is required to be global by some libraries.
+
+Global here means global under a specific node version, not system global.
+
+```
+npm i -g truffle
+npm i -g truffle-flattener
 ```
 
 ## Install
@@ -42,10 +54,11 @@ cd your_token_name
 npm install
 ```
 
-## Setup connection
+## Configure your account
 
-1. Configure mnemonic by `echo <your_mnemonic> > .secret`
-2. Configure infura key by `echo <your_infura_key> > .infura_key`
+1. Configure account by running`echo <your_address_on_metamask> > .account`
+2. Configure mnemonic by running `echo <your_mnemonic> > .secret`
+3. Configure infura key by running `echo <your_infura_key> > .infura_key`
 
 ## Customize your token
 
@@ -64,7 +77,7 @@ truffle develop
 Deploy
 
 ```
-migrate --reset
+migrate
 ```
 
 Once deployed, you can access your token as below
@@ -84,10 +97,12 @@ truffle console --network ropsten
 ```
 
 ```
-migrate --reset
+migrate
 token = await MyCoin.deployed()
-token.mint(your_address, 1000)
-token.balanceOf(your_address)
+accounts = web3.eth.getAccounts()
+token.balanceOf(accounts[0])
+token.mint(accounts[0], web3.utils.toWei("1000", "ether"))
+token.balanceOf(accounts[0])
 ```
 
 Main
@@ -104,7 +119,7 @@ They are stored build/contracts/MyCoin.json.
 
 *If your project keeps on going, commit them to your repository.*
 
-*Migrations which have been already applied are skipped in migrations in the future.*
+*Migrations which have been already applied are skipped in the next migration.*
 
 ## Flatten your token
 
