@@ -49,7 +49,7 @@ npm install
 
 ## Customize your token
 
-1. Open contracts/HackersLiveCoin.sol
+1. Open contracts/MyCoin.sol
 2. Edit cap, name, symbol and decimals.
 3. That's it.
 
@@ -70,7 +70,7 @@ migrate --reset
 Once deployed, you can access your token as below
 
 ```
-token = await HackersLiveCoin.deployed()
+token = await MyCoin.deployed()
 token.name()
 token.totalSupply()
 ```
@@ -85,7 +85,7 @@ truffle console --network ropsten
 
 ```
 migrate --reset
-token = await HackersLiveCoin.deployed()
+token = await MyCoin.deployed()
 token.mint(your_address, 1000)
 token.balanceOf(your_address)
 ```
@@ -95,11 +95,16 @@ Main
 *The command below consumes your real ETH.*
 
 ```
-truffle migrate --reset --network main
+truffle migrate --network main
 ```
 
 Don't forget write down your contract address or transaction hash.
 
+They are stored build/contracts/MyCoin.json.
+
+*If your project keeps on going, commit them to your repository.*
+
+*Migrations which have been already applied are skipped in migrations in the future.*
 
 ## Flatten your token
 
@@ -108,7 +113,7 @@ Don't forget write down your contract address or transaction hash.
 This is required to submit source code to Etherscan or exchanges and so on.
 
 ```
-truffle-flattener contracts/HackersLiveCoin.sol > output.sol
+truffle-flattener contracts/MyCoin.sol > output.sol
 ```
 
 And use output.sol

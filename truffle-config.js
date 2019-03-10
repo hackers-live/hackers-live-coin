@@ -81,7 +81,7 @@ module.exports = {
        confirmations: 3,    // # of confs to wait between deployments. (default: 0)
        timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
        skipDryRun: false,
-       gasPrice: 2000000000,  // in wei (default: 100 gwei)
+       gasPrice: 1000000000,  // in wei (default: 100 gwei)
        websockets: true        // Enable EventEmitter interface for web3 (default: false)
     },
 
