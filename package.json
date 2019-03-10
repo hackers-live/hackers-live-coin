@@ -4,8 +4,9 @@
   "description": "Hackers' Live Coin (ERC20)",
   "main": "index.js",
   "scripts": {
-    "export-abi": "node export-abi.js",
-    "export-bytecode": "node export-bytecode.js"
+    "reset": "rm build/contracts/*",
+    "export-abi": "node scripts/export-abi.js",
+    "export-bytecode": "node scripts/export-bytecode.js"
   },
   "repository": {
     "type": "git",
